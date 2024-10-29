@@ -12,6 +12,18 @@ Lista* exibirElementos(Lista* lista);
 Lista* buscarElemento(Lista* lista, int i);
 Lista* excluirElemento(Lista* lista, int i);
 Lista* ordemCrescente(Lista* lista, int i);
+void liberarLista(Lista** lista);
+
+void liberarLista(Lista** lista) {
+	Lista *p = *lista;
+	while(p == NULL){
+		Lista *t = p->prox;
+		free(p);
+		p = t;
+	}
+
+	*lista = NULL;
+}
 
 Lista* ordemCrescente(Lista* lista, int i){
 	Lista* novo = (Lista*) malloc(sizeof(Lista));
